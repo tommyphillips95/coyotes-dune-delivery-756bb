@@ -2,41 +2,55 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HACD Deployment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>H.A.C.D.</title>
     <meta
       name="description"
-      content="HACD deployment status page for the associated Netlify project."
+      content="Hyperscale Auto Consultation Designer. A scored campus brief and a schematic sheet set. Not sealed engineering."
+    />
+    <meta name="theme-color" content="#07090c" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Syne:wght@500;600;700&display=swap"
+      rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <main class="container">
-      <div class="badge">LIVE</div>
-      <h1>HACD Deployment</h1>
-      <p class="subtitle">
-        Deployment prepared for the associated Netlify build.
-      </p>
-
-      <div class="status-panel">
+    <header class="top">
+      <p class="kicker">H.A.C.D. · Hyperscale Auto Consultation Designer</p>
+      <div class="top-row">
         <div>
-          <span class="label">Status</span>
-          <strong>Ready</strong>
+          <h1 id="campus-title">Coastal Bend AI Campus</h1>
+          <p id="campus-sub" class="muted"></p>
         </div>
-        <div>
-          <span class="label">Environment</span>
-          <strong>Production</strong>
-        </div>
-        <div>
-          <span class="label">Project</span>
-          <strong>moonlit-centaur-d4eb57.netlify.app</strong>
+        <div class="actions">
+          <button id="run" class="solid" type="button">Run lead demo</button>
+          <button id="tab-score" class="ghost on" type="button">Score</button>
+          <button id="tab-sheets" class="ghost" type="button">Drawings</button>
         </div>
       </div>
+    </header>
 
-      <p class="message">
-        This is a minimal static deployment stub to establish a valid publishable site in the repository.
-        If you have a production app to attach later, replace this page with the real build output.
-      </p>
+    <main class="layout">
+      <aside class="panel">
+        <h2>Customer brief</h2>
+        <p class="muted">What they already know. The set redraws from this.</p>
+        <label>Campus <input id="name" /></label>
+        <div class="split">
+          <label>Acres <input id="acres" type="number" min="1" /></label>
+          <label>MW IT <input id="mw" type="number" min="1" /></label>
+        </div>
+        <label>Market <input id="market" /></label>
+        <label class="check"><input id="dry" type="checkbox" /> Dry cooling</label>
+        <button id="generate" class="solid wide" type="button">Generate the package</button>
+        <p class="fine">Schematic issue. Not for construction. Not sealed.</p>
+      </aside>
+
+      <section id="score-view" class="stack"></section>
+      <section id="sheet-view" class="stack hidden"></section>
     </main>
+    <script src="./app.js"></script>
   </body>
 </html>
